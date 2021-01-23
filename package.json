@@ -1,0 +1,25 @@
+{
+  "name": "discordtvnotifier",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nmb2405/discordtvnotifier.git"
+  },
+  "author": "Ninad Bhangui",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nmb2405/discordtvnotifier/issues"
+  },
+  "homepage": "https://github.com/nmb2405/discordtvnotifier#readme",
+  "dependencies": {
+    "discord.js": "^12.5.1",
+    "dotenv": "^8.2.0",
+    "eslint": "^7.18.0",
+    "nodemon": "^2.0.7"
+  }
+}

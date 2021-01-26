@@ -1,5 +1,6 @@
 const fs = require('fs')
 const { prefix, token } = require('./config.js')
+
 // require the discord.js module
 const Discord = require('discord.js')
 

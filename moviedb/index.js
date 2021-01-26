@@ -1,4 +1,4 @@
-const { moviedbApikey } = require('../config.json');
+const { moviedbApikey } = require('../config');
 const { MovieDb } = require('moviedb-promise');
 const moviedb = new MovieDb(moviedbApikey);
 

@@ -8,7 +8,7 @@ ENV NODE_ENV production
 # ENV PATH /app/node_modules/.bin:$PATH
 
 COPY package.json package-lock.json /app/
-RUN npm ci
+RUN npm install --only=production
 COPY . .
 
 CMD [ "npm", "start" ]

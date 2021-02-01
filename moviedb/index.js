@@ -8,6 +8,11 @@ const findMovie = async title => {
   return res
 }
 
+const findTv = async title => {
+  const res = await moviedb.searchTv(title)
+  return res
+}
+
 const configuration = async () => {
   const res = await moviedb.configuration()
   return res
@@ -22,6 +27,7 @@ const getImageUrl = async path => {
 module.exports = {
   moviedb: moviedb,
   findMovie: findMovie,
+  findTv: findTv,
   configuration: configuration,
   getImageUrl: getImageUrl,
 }

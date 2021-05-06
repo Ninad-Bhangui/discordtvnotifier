@@ -1,5 +1,5 @@
 const Discord = require('discord.js');
-const { findTv, getImageUrl } = require('../moviedb');
+import { findTv, getImageUrl } from '../moviedb';
 import { Command, Message } from 'discord.js'
 module.exports = {
 	name: 'searchtv',
@@ -10,14 +10,14 @@ module.exports = {
 		try {
 			const entries = await findTv(args[0]);
 			// Use the most popular movie from list
-			if (entries.total_results > 0) {
-				const entry = entries.results.reduce((p, c) => p.popularity > c.popularity ? p : c);
+			if (entries.total_results! > 0) {
+				const entry = entries.results!.reduce((p, c) => p.popularity! > c.popularity! ? p : c);
 				console.log(entry)
 				const tvEmbed = new Discord.MessageEmbed()
 					.setColor('#0099ff')
 					.setTitle(entry.name)
 					.setDescription(entry.overview)
-					.setImage(await getImageUrl(entry.poster_path));
+					.setImage(await getImageUrl(entry.poster_path!));
 				message.channel.send(tvEmbed);
 			}
 			else {

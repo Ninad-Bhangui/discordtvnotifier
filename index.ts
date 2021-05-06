@@ -16,7 +16,7 @@ for (const file of commandFiles) {
   client.commands.set(command.name, command)
 }
 
-const cooldowns: Collection<string, Collection<string,Command>> = new Collection()
+const cooldowns: Collection<string, Collection<string,number>> = new Collection()
 // when the client is ready, run this code
 // this event will only trigger one time after logging in
 client.once('ready', () => {
@@ -61,8 +61,8 @@ client.on('message', message => {
   const timestamps = cooldowns.get(command.name)
   const cooldownAmount = (command.cooldown || 3) * 1000
 
-  if (timestamps.has(message.author.id)) {
-    const expirationTime = timestamps.get(message.author.id) + cooldownAmount
+  if (timestamps!.has(message.author.id)) {
+    const expirationTime = timestamps!.get(message.author.id)! + cooldownAmount
 
     if (now < expirationTime) {
       const timeLeft = (expirationTime - now) / 1000
@@ -73,8 +73,8 @@ client.on('message', message => {
       )
     }
   }
-  timestamps.set(message.author.id, now)
-  setTimeout(() => timestamps.delete(message.author.id), cooldownAmount)
+  timestamps!.set(message.author.id, now)
+  setTimeout(() => timestamps!.delete(message.author.id), cooldownAmount)
 
   try {
     command.execute(message, args)

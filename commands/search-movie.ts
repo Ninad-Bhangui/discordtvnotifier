@@ -1,5 +1,5 @@
 const Discord = require('discord.js');
-const { findMovie, getImageUrl } = require('../moviedb');
+import { findMovie, getImageUrl } from '../moviedb';
 import { Command, Message } from 'discord.js'
 
 module.exports = {
@@ -11,13 +11,13 @@ module.exports = {
 		try {
 			const movies = await findMovie(args[0]);
 			// Use the most popular movie from list
-			if (movies.total_results > 0) {
-				const movie = movies.results.reduce((p, c) => p.popularity > c.popularity ? p : c);
+			if (movies.total_results! > 0) {
+				const movie = movies.results!.reduce((p, c) => p.popularity! > c.popularity! ? p : c);
 				const movieEmbed = new Discord.MessageEmbed()
 					.setColor('#0099ff')
 					.setTitle(movie.title)
 					.setDescription(movie.overview)
-					.setImage(await getImageUrl(movie.poster_path));
+					.setImage(await getImageUrl(movie.poster_path!));
 				message.channel.send(movieEmbed);
 			}
 			else {

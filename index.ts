@@ -6,11 +6,11 @@ import {Client, Collection, TextChannel, Command} from 'discord.js'
 const client = new Client()
 client.commands = new Collection()
 const commandFiles = fs
-  .readdirSync('./commands')
+  .readdirSync(`${__dirname}/commands`)
   .filter(file => file.endsWith('.js'))
+console.log(`commands found: ${commandFiles}`)
 for (const file of commandFiles) {
-  const command = require(`./commands/${file}`)
-
+  const command = require(`${__dirname}/commands/${file}`)
   // set a new item in the Collection
   // with the key as the command name and the value as the exported module
   client.commands.set(command.name, command)

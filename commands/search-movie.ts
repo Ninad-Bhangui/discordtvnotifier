@@ -1,12 +1,13 @@
 const Discord = require('discord.js');
 const { findMovie, getImageUrl } = require('../moviedb');
+import { Command, Message } from 'discord.js'
 
 module.exports = {
 	name: 'searchmovie',
 	description: 'Search movie!',
 	cooldown: 10,
 	// eslint-disable-next-line no-unused-vars
-	async execute (message, args) {
+	async execute (message: Message, args: string[]) {
 		try {
 			const movies = await findMovie(args[0]);
 			// Use the most popular movie from list

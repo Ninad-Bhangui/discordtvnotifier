@@ -1,14 +1,14 @@
 const { moviedbApikey } = require('../config.js')
 const { MovieDb } = require('moviedb-promise')
-const moviedb = new MovieDb(moviedbApikey)
+const moviedb = new MovieDb(moviedbApikey!)
 
-const findMovie = async title => {
+const findMovie = async (title: string) => {
   // Equivalant to { query: title }
   const res = await moviedb.searchMovie(title)
   return res
 }
 
-const findTv = async title => {
+const findTv = async (title: string) => {
   const res = await moviedb.searchTv(title)
   return res
 }
@@ -18,7 +18,7 @@ const configuration = async () => {
   return res
 }
 
-const getImageUrl = async path => {
+const getImageUrl = async (path: string) => {
   const res = await moviedb.configuration()
   // todo: make below line more readable.
   return `${res.images.base_url}${res.images.poster_sizes[4]}/${path}`

@@ -1,5 +1,5 @@
-const Discord = require('discord.js');
-import { findMovie, getImageUrl } from '../moviedb';
+import Discord from 'discord.js'
+import { findMovie, getImageUrl } from '../moviedb'
 import { Command, Message } from 'discord.js'
 
 module.exports = {

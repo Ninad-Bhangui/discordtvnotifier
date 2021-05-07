@@ -1,5 +1,5 @@
 import fs from 'fs'
-import { prefix, token } from './config.js'
+const { prefix, token } = require('./config.js')
 // require the discord.js module
 import {Client, Collection, TextChannel, Command} from 'discord.js'
 // create a new Discord client

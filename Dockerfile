@@ -9,6 +9,6 @@ ENV NODE_ENV production
 
 COPY package.json package-lock.json /app/
 RUN npm install --only=production
-COPY . .
+COPY built built/
 
 CMD [ "npm", "start" ]

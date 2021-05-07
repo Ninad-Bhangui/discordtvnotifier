@@ -1,12 +1,12 @@
 const { prefix } = require('../config');
-
+import {Command, Message} from 'discord.js';
 module.exports = {
 	name: 'help',
 	description: 'List all of my commands or info about a specific command.',
 	aliases: ['commands'],
 	usage: '[command name]',
 	cooldown: 5,
-	execute (message, args) {
+	execute (message: Message, args: string[]) {
 		const data = [];
 		const { commands } = message.client;
 
